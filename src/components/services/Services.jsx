@@ -229,7 +229,7 @@ const Services = () => {
             </div>
           </>
         ) : (
-          <div style={{ height:"85%"/* position: "relative", width: "100%", height: "90%" */}}>
+          <div style={{ height:"100%"/* position: "relative", width: "100%", height: "90%" */}}>
             <canvas
               ref={canvasRef}
               width={600}
