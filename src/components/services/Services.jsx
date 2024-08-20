@@ -43,13 +43,13 @@ const Services = () => {
       console.error("Canvas element not found in the DOM");
       return;
     }
-
+  
     const ctx = canvas.getContext("2d");
     if (!ctx) {
       console.error("Failed to get 2D context");
       return;
     }
-
+  
     const loadImage = (src) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
@@ -59,25 +59,39 @@ const Services = () => {
         img.onerror = () => reject(new Error(`Failed to load image at ${src}`));
       });
     };
-
+  
     Promise.all([
       loadImage("/Option 1.png"),
       loadImage(imageSrc),
     ])
       .then(([frameImage, staticImage]) => {
-        // Set canvas size to match the static image size
-        canvas.width = staticImage.width;
-        canvas.height = staticImage.height;
-
-        // Clear canvas and draw images
+        // Set canvas size to match the frame size
+        canvas.width = frameImage.width;
+        canvas.height = frameImage.height;
+  
+        // Clear the canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(staticImage, 0, 0);
+  
+        // Calculate the scaling factor to fit the image within the frame's height
+        const scaleFactor = frameImage.height / staticImage.height;
+        const scaledWidth = staticImage.width * scaleFactor;
+        const scaledHeight = staticImage.height * scaleFactor;
+  
+        // Center the scaled image on the canvas
+        const imageX = (canvas.width - scaledWidth) / 2;
+        const imageY = (canvas.height - scaledHeight) / 2;
+  
+        // Draw the scaled image and the frame
+        ctx.drawImage(staticImage, imageX, imageY, scaledWidth, scaledHeight);
         ctx.drawImage(frameImage, 0, 0, canvas.width, canvas.height);
       })
       .catch((error) => {
         console.error("Error loading images: ", error);
       });
   };
+  
+  
+  
 
   const shareImage = async () => {
     const canvas = canvasRef.current;

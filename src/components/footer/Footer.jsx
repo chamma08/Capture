@@ -72,7 +72,7 @@ function Footer() {
           ref={formRef}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 4, duration: 1 }}
+          transition={{ delay: 4, duration: 4 }}
           onSubmit={(e) => {
             e.preventDefault(); 
             window.location.href = 'https://airstudios.lk/';
