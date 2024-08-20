@@ -234,7 +234,7 @@ const Services = () => {
               ref={canvasRef}
               width={600}
               height={600}
-              style={{ display: "block", /* border: "5px solid red", */ height: "100%", width: "100%" }}
+              style={{ display: "block", /* border: "5px solid red", */ height: "85%", width: "100%" }}
             ></canvas>
 
             <div
