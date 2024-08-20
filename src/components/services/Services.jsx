@@ -142,7 +142,7 @@ const Services = () => {
       ref={ref}
       animate="animate"
     >
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      <div style={{ position: "relative", width: "100%", height: "90%" }}>
         {!capturedImage ? (
           <>
             <Webcam
@@ -222,11 +222,11 @@ const Services = () => {
             </div>
           </>
         ) : (
-          <div style={{ position: "relative", width: "100%", height: "80vh"}}>
+          <div style={{ height:"70%"/* position: "relative", width: "100%", height: "90%" */}}>
             <canvas
               ref={canvasRef}
-              width={800}
-              height={800}
+              width={600}
+              height={600}
               style={{ display: "block", /* border: "5px solid red", */ height: "80%", width: "100%" }}
             ></canvas>
 
