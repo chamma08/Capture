@@ -73,8 +73,9 @@
       }
 
       h1 {
-        font-size: 96px;
+        font-size: 50px;
         font-weight: 100;
+        bottom: 0;
 
         @include mobile {
           font-size: 36px;
