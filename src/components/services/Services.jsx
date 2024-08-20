@@ -120,7 +120,7 @@ const Services = () => {
 
   const frameStyle = {
     position: "absolute",
-    top: -95,
+    top: -100,
     bottom: 0,
     background: `url('Option 1.png') no-repeat center`,
     backgroundSize: "contain",
@@ -182,7 +182,6 @@ const Services = () => {
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: "center",
-                  margin: "20px",
                   marginTop: "10px",
 
                 }}
@@ -243,7 +242,7 @@ const Services = () => {
             >
               <div
                 style={{
-                  padding: "10px",
+                  padding: "5px",
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
