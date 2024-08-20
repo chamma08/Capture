@@ -80,13 +80,19 @@ const Services = () => {
   };
 
   const shareImage = async () => {
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      console.error("Canvas element not found in the DOM");
+      return;
+    }
+  
     if (navigator.share) {
       try {
-        const blob = await fetch(capturedImage).then((res) => res.blob());
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg"));
         const file = new File([blob], "captured-photo-with-frame.jpg", {
           type: blob.type,
         });
-
+  
         await navigator.share({
           files: [file],
           title: "Check out this photo!",
