@@ -142,7 +142,7 @@ const Services = () => {
       ref={ref}
       animate="animate"
     >
-      <div style={{ position: "relative", width: "100%", height: "90%" }}>
+      <div style={{ position: "relative", width: "100%", height: "100%" }}>
         {!capturedImage ? (
           <>
             <Webcam
